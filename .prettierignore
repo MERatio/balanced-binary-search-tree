@@ -1,0 +1,6 @@
+# Ignore artifacts:
+build
+coverage
+# Prettier 3.0 introduced ignoring gitignored files by default, however the prettier vscode extension doesn't ignore them
+# https://github.com/prettier/prettier-vscode/issues/3063
+dist
