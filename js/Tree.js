@@ -45,6 +45,40 @@ class Tree {
       this.print(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
     }
   }
+
+  // Iterative is more efficient than recursive.
+  insert(value) {
+    if (typeof value !== 'number') {
+      throw new Error('Tree only accepts numbers.');
+    }
+
+    const newNode = new Node(value);
+
+    if (this.root === null) {
+      this.root = newNode;
+      return;
+    }
+
+    let cur = this.root;
+    while (true) {
+      if (cur.data > value) {
+        if (cur.left === null) {
+          cur.left = newNode;
+          return;
+        }
+        cur = cur.left;
+      } else if (cur.data < value) {
+        if (cur.right === null) {
+          cur.right = newNode;
+          return;
+        }
+        cur = cur.right;
+      } else {
+        // Ignore duplicate.
+        return;
+      }
+    }
+  }
 }
 
 export default Tree;
