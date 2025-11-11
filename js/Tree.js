@@ -32,6 +32,42 @@ class Tree {
     );
   }
 
+  // Get inorder successor (smallest number in right subtree).
+  #getSuccessor(node) {
+    let cur = node.right;
+    while (cur !== null && cur.left !== null) {
+      cur = cur.left;
+    }
+    return cur;
+  }
+
+  #deleteNode(root, value) {
+    if (root === null) {
+      return null;
+    }
+
+    if (root.data > value) {
+      root.left = this.#deleteNode(root.left, value);
+    } else if (root.data < value) {
+      root.right = this.#deleteNode(root.right, value);
+    } else {
+      // Node with 0 or 1 child. Replace the target node with its child (could null, or a node).
+      if (root.left === null) {
+        return root.right;
+      } else if (root.right === null) {
+        return root.left;
+      }
+
+      // Node with 2 children.
+      const successor = this.#getSuccessor(root);
+      root.data = successor.data;
+      // Delete the successor node.
+      root.right = this.#deleteNode(root.right, successor.data);
+    }
+
+    return root;
+  }
+
   // Print tree sideways.
   static print(node, prefix = '', isLeft = true) {
     if (node === null) {
@@ -78,6 +114,10 @@ class Tree {
         return;
       }
     }
+  }
+
+  deleteItem(value) {
+    this.root = this.#deleteNode(this.root, value);
   }
 }
 

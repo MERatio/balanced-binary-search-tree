@@ -13,3 +13,16 @@ Tree.print(tree.root);
 console.log('--- Insert 75 ---');
 tree.insert(75);
 Tree.print(tree.root);
+
+// Test .deleteItem()
+console.log('--- Delete nothing ---');
+tree.deleteItem(9000);
+Tree.print(tree.root);
+
+console.log('--- Delete 75 ---');
+tree.deleteItem(75);
+Tree.print(tree.root);
+
+console.log('--- Delete 8 (root node), replaced by 9 ---');
+tree.deleteItem(8);
+Tree.print(tree.root);
