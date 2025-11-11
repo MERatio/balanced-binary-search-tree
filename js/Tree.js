@@ -32,6 +32,23 @@ class Tree {
     );
   }
 
+  #printTree(node, prefix = '', isLeft = true) {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      this.#printTree(
+        node.right,
+        `${prefix}${isLeft ? '│   ' : '    '}`,
+        false,
+      );
+    }
+    console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
+    if (node.left !== null) {
+      this.#printTree(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+    }
+  }
+
   // Get inorder successor (smallest number in right subtree).
   #getSuccessor(node) {
     let cur = node.right;
@@ -69,17 +86,8 @@ class Tree {
   }
 
   // Print tree sideways.
-  static print(node, prefix = '', isLeft = true) {
-    if (node === null) {
-      return;
-    }
-    if (node.right !== null) {
-      this.print(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
-    }
-    console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
-    if (node.left !== null) {
-      this.print(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
-    }
+  print() {
+    this.#printTree(this.root);
   }
 
   // Iterative is more efficient than recursive.
