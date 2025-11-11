@@ -19,8 +19,8 @@ class Tree {
   }
 
   #buildTree(arr) {
-    if (!helpers.areElementsNumber(arr)) {
-      throw new Error('Tree only accepts numbers.');
+    if (!Array.isArray(arr) || !helpers.areElementsNumber(arr)) {
+      throw new Error('Tree only accepts an array of numbers.');
     }
 
     const uniqueNumbers = [...new Set(arr)];
