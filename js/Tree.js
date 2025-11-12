@@ -202,6 +202,23 @@ class Tree {
 
     traverse(this.root);
   }
+
+  postOrderForEach(callback) {
+    if (typeof callback !== 'function') {
+      throw new Error('Callback required.');
+    }
+
+    function traverse(node) {
+      if (node === null) {
+        return;
+      }
+      traverse(node.left);
+      traverse(node.right);
+      callback(node);
+    }
+
+    traverse(this.root);
+  }
 }
 
 export default Tree;
