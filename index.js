@@ -36,18 +36,18 @@ console.log(tree.find(67));
 
 // Test .levelOrderForEach()
 console.log('--- Level order log ---');
-const values = [];
-tree.levelOrderForEach((node) => values.push(node.data));
-console.log(values.join(' '));
+const values1 = [];
+tree.levelOrderForEach((node) => values1.push(node.data));
+console.log(values1.join(' '));
 
 // Test .preOrderForEach()
-console.log('--- Preorder log ---');
+console.log('--- Pre-order log ---');
 const values2 = [];
 tree.preOrderForEach((node) => values2.push(node.data));
 console.log(values2.join(' '));
 
 // Test .inOrderForEach()
-console.log('--- Preorder log ---');
+console.log('--- Inorder log ---');
 const values3 = [];
 tree.inOrderForEach((node) => values3.push(node.data));
 console.log(values3.join(' '));
