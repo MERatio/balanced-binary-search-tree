@@ -168,6 +168,23 @@ class Tree {
       }
     }
   }
+
+  preOrderForEach(callback) {
+    if (typeof callback !== 'function') {
+      throw new Error('Callback required.');
+    }
+
+    function traverse(node) {
+      if (node === null) {
+        return;
+      }
+      callback(node);
+      traverse(node.left);
+      traverse(node.right);
+    }
+
+    traverse(this.root);
+  }
 }
 
 export default Tree;

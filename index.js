@@ -39,3 +39,9 @@ console.log('--- Level order log ---');
 const values = [];
 tree.levelOrderForEach((node) => values.push(node.data));
 console.log(values.join(' '));
+
+// Test .preOrderForEach()
+console.log('--- Preorder log ---');
+const values2 = [];
+tree.preOrderForEach((node) => values2.push(node.data));
+console.log(values2.join(' '));
