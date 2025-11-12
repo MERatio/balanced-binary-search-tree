@@ -185,6 +185,23 @@ class Tree {
 
     traverse(this.root);
   }
+
+  inOrderForEach(callback) {
+    if (typeof callback !== 'function') {
+      throw new Error('Callback required.');
+    }
+
+    function traverse(node) {
+      if (node === null) {
+        return;
+      }
+      traverse(node.left);
+      callback(node);
+      traverse(node.right);
+    }
+
+    traverse(this.root);
+  }
 }
 
 export default Tree;

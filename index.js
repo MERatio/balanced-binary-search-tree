@@ -45,3 +45,9 @@ console.log('--- Preorder log ---');
 const values2 = [];
 tree.preOrderForEach((node) => values2.push(node.data));
 console.log(values2.join(' '));
+
+// Test .inOrderForEach()
+console.log('--- Preorder log ---');
+const values3 = [];
+tree.inOrderForEach((node) => values3.push(node.data));
+console.log(values3.join(' '));
