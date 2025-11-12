@@ -146,6 +146,10 @@ class Tree {
   }
 
   levelOrderForEach(callback) {
+    if (typeof callback !== 'function') {
+      throw new Error('Callback required.');
+    }
+
     if (this.root === null) {
       return;
     }
