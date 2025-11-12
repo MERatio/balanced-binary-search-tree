@@ -26,3 +26,10 @@ tree.print();
 console.log('--- Delete 8 (root node), replaced by 9 ---');
 tree.deleteItem(8);
 tree.print();
+
+// Test .find()
+console.log('--- Find nothing ---');
+console.log(tree.find(8));
+
+console.log('--- Find 67 ---');
+console.log(tree.find(67));

@@ -127,6 +127,22 @@ class Tree {
   deleteItem(value) {
     this.root = this.#deleteNode(this.root, value);
   }
+
+  // Can do it with recursive, but iterative is more efficient.
+  find(value) {
+    let cur = this.root;
+    while (cur !== null) {
+      if (cur.data > value) {
+        cur = cur.left;
+      } else if (cur.data < value) {
+        cur = cur.right;
+      } else {
+        return cur;
+      }
+    }
+
+    return null;
+  }
 }
 
 export default Tree;
