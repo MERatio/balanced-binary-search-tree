@@ -33,3 +33,9 @@ console.log(tree.find(8));
 
 console.log('--- Find 67 ---');
 console.log(tree.find(67));
+
+// Test .levelOrderForEach()
+console.log('--- Level order log ---');
+const values = [];
+tree.levelOrderForEach((node) => values.push(node.data));
+console.log(values.join(' '));

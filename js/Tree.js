@@ -1,5 +1,6 @@
 import * as helpers from './helpers.js';
 import Node from './Node.js';
+import Queue from './Queue.js';
 
 class Tree {
   constructor(arr) {
@@ -142,6 +143,26 @@ class Tree {
     }
 
     return null;
+  }
+
+  levelOrderForEach(callback) {
+    if (this.root === null) {
+      return;
+    }
+
+    const queue = new Queue();
+    queue.enqueue(this.root);
+
+    while (!queue.isEmpty()) {
+      const cur = queue.dequeue();
+      callback(cur);
+      if (cur.left !== null) {
+        queue.enqueue(cur.left);
+      }
+      if (cur.right !== null) {
+        queue.enqueue(cur.right);
+      }
+    }
   }
 }
 
