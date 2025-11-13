@@ -226,6 +226,10 @@ class Tree {
 
   // Recursion is slightly slower.
   height(value) {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
+      return null;
+    }
+
     const node = this.find(value);
     if (node === null) {
       return null;
