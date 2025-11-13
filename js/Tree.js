@@ -131,7 +131,7 @@ class Tree {
 
   // Can do it with recursive, but iterative is more efficient.
   find(value) {
-    if (value === undefined) {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
       return null;
     }
 
