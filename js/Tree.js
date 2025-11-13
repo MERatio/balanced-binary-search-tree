@@ -285,6 +285,27 @@ class Tree {
     // Not found.
     return null;
   }
+
+  // This is slow.
+  isBalanced() {
+    // Used arrow function so this still points to the Tree instance.
+    const check = (cur) => {
+      if (cur === null) {
+        return true;
+      }
+
+      const leftHeight = cur.left ? this.height(cur.left.data) : 0;
+      const rightHeight = cur.right ? this.height(cur.right.data) : 0;
+
+      if (Math.abs(leftHeight - rightHeight) > 1) {
+        return false;
+      }
+
+      return check(cur.left) && check(cur.right);
+    };
+
+    return check(this.root);
+  }
 }
 
 export default Tree;

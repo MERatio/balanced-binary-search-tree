@@ -77,3 +77,13 @@ console.log(tree.depth(9));
 
 console.log('--- Get depth of leaf node ---');
 console.log(tree.depth(6345));
+
+// Check isBalanced()
+console.log('Test isBalanced?', tree.isBalanced());
+
+console.log('--- Add more node so the tree will be unbalanced. ---');
+for (let i = 101; i <= 105; i++) {
+  tree.insert(i);
+}
+
+console.log('Test isBalanced?', tree.isBalanced());
