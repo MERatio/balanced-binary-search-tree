@@ -131,6 +131,10 @@ class Tree {
 
   // Can do it with recursive, but iterative is more efficient.
   find(value) {
+    if (value === undefined) {
+      return null;
+    }
+
     let cur = this.root;
     while (cur !== null) {
       if (cur.data > value) {
