@@ -257,6 +257,30 @@ class Tree {
 
     return height;
   }
+
+  depth(value) {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
+      return null;
+    }
+
+    let cur = this.root;
+    let depth = 0;
+
+    while (cur !== null) {
+      if (cur.data > value) {
+        cur = cur.left;
+        depth++;
+      } else if (cur.data < value) {
+        cur = cur.right;
+        depth++;
+      } else {
+        return depth;
+      }
+    }
+
+    // Not found.
+    return null;
+  }
 }
 
 export default Tree;

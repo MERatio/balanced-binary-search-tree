@@ -67,3 +67,13 @@ console.log(tree.height(9));
 
 console.log('--- Get height of leaf node ---');
 console.log(tree.height(6345));
+
+// Test depth()
+console.log('--- Get depth of nothing ---');
+console.log(tree.depth(9000));
+
+console.log('--- Get depth of root node---');
+console.log(tree.depth(9));
+
+console.log('--- Get depth of leaf node ---');
+console.log(tree.depth(6345));
