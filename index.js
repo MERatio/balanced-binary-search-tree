@@ -87,3 +87,10 @@ for (let i = 101; i <= 105; i++) {
 }
 
 console.log('Test isBalanced?', tree.isBalanced());
+tree.print();
+
+// Check rebalance()
+console.log('--- Rebalancing ---');
+tree.rebalance();
+console.log('Test isBalanced?', tree.isBalanced());
+tree.print();

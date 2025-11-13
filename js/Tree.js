@@ -306,6 +306,13 @@ class Tree {
 
     return check(this.root);
   }
+
+  rebalance() {
+    const orderedArr = [];
+    // Inorder traverse the tree in order from lowest to highest.
+    this.inOrderForEach((node) => orderedArr.push(node.data));
+    this.root = this.#buildTree(orderedArr);
+  }
 }
 
 export default Tree;
