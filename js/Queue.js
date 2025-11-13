@@ -21,6 +21,10 @@ class Queue {
   isEmpty() {
     return this.head >= this.items.length;
   }
+
+  get length() {
+    return this.items.length - this.head;
+  }
 }
 
 export default Queue;

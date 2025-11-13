@@ -57,3 +57,13 @@ console.log('--- Post-order log ---');
 const values4 = [];
 tree.postOrderForEach((node) => values4.push(node.data));
 console.log(values4.join(' '));
+
+// Test height()
+console.log('--- Get height of nothing ---');
+console.log(tree.height(9000));
+
+console.log('--- Get height of root node ---');
+console.log(tree.height(9));
+
+console.log('--- Get height of leaf node ---');
+console.log(tree.height(6345));

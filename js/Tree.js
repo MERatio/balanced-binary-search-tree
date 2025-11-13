@@ -223,6 +223,36 @@ class Tree {
 
     traverse(this.root);
   }
+
+  // Recursion is slightly slower.
+  height(value) {
+    const node = this.find(value);
+    if (node === null) {
+      return null;
+    }
+
+    // - 1, because leaf node has 0 height.
+    let height = -1;
+    const queue = new Queue();
+    queue.enqueue(node);
+
+    while (!queue.isEmpty()) {
+      let levelSize = queue.length;
+      height++; // Increment height on each level.
+
+      for (let i = 0; i < levelSize; i++) {
+        let cur = queue.dequeue();
+        if (cur.left) {
+          queue.enqueue(cur.left);
+        }
+        if (cur.right) {
+          queue.enqueue(cur.right);
+        }
+      }
+    }
+
+    return height;
+  }
 }
 
 export default Tree;
