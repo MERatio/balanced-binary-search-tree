@@ -93,7 +93,7 @@ class Tree {
 
   // Iterative is more efficient than recursive.
   insert(value) {
-    if (typeof value !== 'number') {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
       throw new Error('Tree only accepts numbers.');
     }
 
@@ -126,6 +126,10 @@ class Tree {
   }
 
   deleteItem(value) {
+    if (typeof value !== 'number' || Number.isNaN(value)) {
+      throw new Error('Value should be a number.');
+    }
+
     this.root = this.#deleteNode(this.root, value);
   }
 
